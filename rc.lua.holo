@@ -68,25 +68,28 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "dwb"
+browser    = "google-chrome-stable"
 browser2   = "iron"
 gui_editor = "gvim"
 graphics   = "gimp"
 musiplr   = terminal .. " -e ncmpcpp "
 
 local layouts = {
-    awful.layout.suit.floating,
+    lain.layout.uselesstile,
     lain.layout.uselesstile,
     awful.layout.suit.fair,
     lain.layout.uselesstile.left,
-    lain.layout.uselesstile.top
+    lain.layout.uselesstile.top,
+    lain.layout.uselesstile,
+    lain.layout.uselesstile,
+    lain.layout.uselesstile
 }
 -- }}}
 
 -- {{{ Tags
 tags = {
-   names = { " WEB ", " TERMINAL ", " FILES ", " OTHER " },
-   layout = { layouts[1], layouts[3], layouts[2], layouts[4] }
+   names = { " WEB ", " TERMINAL ", " FILES ", " OTHER ", " EXT 1 ", " EXT 2 ", " EXT 3 " },
+   layout = { layouts[1], layouts[3], layouts[2], layouts[4], layouts[5], layouts[6], layouts[7] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
